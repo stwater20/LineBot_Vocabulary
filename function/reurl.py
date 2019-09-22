@@ -1,6 +1,6 @@
 import sys
 sys.path.append("../secret")
-import crawler
+import requests
 from secret import RE_api_key
 
 def reurl(url):
