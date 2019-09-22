@@ -69,7 +69,7 @@ def search(data):
     # print(list_speech_2)
 
     s_url = reurl(target_search_temp)
-    answer = "單字：" + voc_info["word"] + "\n" + "發音：" + voc_info["KK"] + " " + voc_info["DJ"] + "\n說明：\n" +list_ans + "\n\n資料來源：\n s_url \nyahoo 字典"
+    answer = "單字：" + voc_info["word"] + "\n" + "發音：" + voc_info["KK"] + " " + voc_info["DJ"] + "\n說明：\n" +list_ans + "\n\n資料來源：\n"+ s_url +"\nyahoo 字典"
     return answer
     # In[ ]:
 
