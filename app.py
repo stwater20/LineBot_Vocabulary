@@ -10,7 +10,7 @@ from linebot.models import *
 
 import sys
 sys.path.append("./secret")
-sys.path.append("./crawler")
+sys.path.append("./function")
 from secret import CHANNEL_ACCESS_TOKEN,CHANNEL_SECRET
 from crawler import search
 
