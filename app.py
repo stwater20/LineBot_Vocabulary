@@ -10,9 +10,9 @@ from linebot.models import *
 
 import sys
 sys.path.append("./secret")
-
+sys.path.append("./crawler")
 from secret import CHANNEL_ACCESS_TOKEN,CHANNEL_SECRET
-
+from crawler import search
 
 
 
@@ -42,7 +42,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(event.reply_token, message)
+    answer = search(message)
+    line_bot_api.reply_message(event.reply_token, answer)
 
 import os
 if __name__ == "__main__":
