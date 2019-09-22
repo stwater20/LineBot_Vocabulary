@@ -63,7 +63,7 @@ def search(data):
     print(list_speech_1)
     print(list_speech_2)
 
-    return list_speech_1
+    return list_speech_1[0]
     # In[ ]:
 
 
