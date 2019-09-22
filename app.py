@@ -8,10 +8,10 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-# import sys
-# sys.path.append("./secret")
+import sys
+sys.path.append("./secret")
 
-# from secret import CHANNEL_ACCESS_TOKEN,CHANNEL_SECRET
+from secret import CHANNEL_ACCESS_TOKEN,CHANNEL_SECRET
 
 
 
@@ -19,9 +19,9 @@ from linebot.models import *
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi("QUPfXCz2i+hT5J7lTycNpv8e8FbeipBqMQxZZY1sgju9FVcyu3pfdxhC80cI+uErfqX3LtoFzLKmkbPB+r+WPBPM2g+SJHzhUrzzoIye2S+obwII6STUPtnExg+UR9oxPfQgAlRnbeUlAdiotZ0qxAdB04t89/1O/w1cDnyilFU=")
+line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 # Channel Secret
-handler = WebhookHandler("99fe0d594fb9d40f3ef5ac088bee8517")
+handler = WebhookHandler(CHANNEL_SECRET)
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
