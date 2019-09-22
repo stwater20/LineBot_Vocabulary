@@ -6,10 +6,13 @@
 
 import requests
 from bs4 import BeautifulSoup
+from reurl import reurl
 
+
+target_search_temp = ""
 
 def search(data):
-
+    global target_search_temp
     target_search_temp="https://tw.dictionary.search.yahoo.com/search;_ylt=AwrtXW.mI4ddaGgAMYp7rolQ;_ylc=X1MDMTM1MTIwMDM3OQRfcgMyBGZyAwRncHJpZAMEbl9yc2x0AzAEbl9zdWdnAzAEb3JpZ2luA3R3LmRpY3Rpb25hcnkuc2VhcmNoLnlhaG9vLmNvbQRwb3MDMARwcXN0cgMEcHFzdHJsAzAEcXN0cmwDNARxdWVyeQN5cnJyBHRfc3RtcAMxNTY5MTM3NjE5?p=%s&fr=sfp&iscqry="%(data)
     r = requests.get(target_search_temp) #將網頁資料GET下來
     soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
@@ -61,14 +64,14 @@ def search(data):
         temp2 = temp[1].text#翻譯
         list_speech_1.append(temp1)
         list_speech_2.append(temp2)
-        list_ans += str(i+1) + ". " + temp1 + " " + temp2 +  "\n" 
+        list_ans += "("+str(i+1) + ") " + temp1 + " " + temp2 +  "\n" 
     # print(list_speech_1)
     # print(list_speech_2)
 
-    answer = "單字：" + voc_info["word"] + "\n" + "發音：" + voc_info["KK"] + " " + voc_info["DJ"] + "\n說明：\n" +list_ans + "資料來源：yahoo 字典"
+    s_url = reurl(target_search_temp)
+    answer = "單字：" + voc_info["word"] + "\n" + "發音：" + voc_info["KK"] + " " + voc_info["DJ"] + "\n說明：\n" +list_ans + "\n\n資料來源：\n s_url \nyahoo 字典"
     return answer
     # In[ ]:
-print(search("apple"))
 
 
 
