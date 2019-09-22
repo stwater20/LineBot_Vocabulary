@@ -61,11 +61,11 @@ def search(data):
         temp2 = temp[1].text#翻譯
         list_speech_1.append(temp1)
         list_speech_2.append(temp2)
-        list_ans = temp1 + " " + temp2 +  "%0D%0A" 
+        list_ans = temp1 + " " + temp2 +  "\n" 
     # print(list_speech_1)
     # print(list_speech_2)
 
-    answer = "單字：" + voc_info["word"] + "%0D%0A" + " " + voc_info["KK"] + " "+voc_info["DJ"] + "%0D%0A" +list_ans
+    answer = "單字：" + voc_info["word"] + "\n" + " " + voc_info["KK"] + " "+voc_info["DJ"] + "\n" +list_ans
     return answer
     # In[ ]:
 print(search("apple"))
